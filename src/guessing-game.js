@@ -1,6 +1,10 @@
 class GuessingGame {
     constructor() {
-    var start = 0, end = 0, current = 0;
+    var start = 0, end = 0;
+    }
+
+    count() {
+      return Math.ceil(this.start+((this.end-this.start)/2));
     }
 
     setRange(min, max) {
@@ -8,15 +12,15 @@ class GuessingGame {
     }
 
     guess() {
-      return Math.ceil(this.start+((this.end-this.start)/2));
+      return this.count();
     }
 
     lower() {
-      this.end = Math.ceil(this.start+((this.end-this.start)/2));
+      this.end = this.count();
     }
 
     greater() {
-      this.start = Math.ceil(this.start+((this.end-this.start)/2));
+      this.start = this.count();
     }
 }
 
